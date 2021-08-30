@@ -4,10 +4,10 @@ public class Aerodrom {
     private String nazivAerodroma,grad,sifra;
     private double sirina,duzina;
 
-    public Aerodrom(String nazivAerodroma, String grad, String sifra, double sirina, double duzina) {
+    public Aerodrom(String nazivAerodroma, String grad, String sifra, double sirina, double duzina) throws IlegalnaSifraAerodroma {
         this.nazivAerodroma = nazivAerodroma;
         this.grad = grad;
-        this.sifra = sifra;
+        setSifra(sifra);
         this.sirina = sirina;
         this.duzina = duzina;
     }
@@ -33,9 +33,15 @@ public class Aerodrom {
         return sifra;
     }
 
-    public void setSifra(String sifra) {
-        
+    public void setSifra(String sifra) throws IlegalnaSifraAerodroma {
+        if (sifra.length() != 3 || !sifra.matches("[a-zA-Z]+"))
+            throw new IlegalnaSifraAerodroma("Ilegalna sifra " + sifra + ", probajte " + grad.replaceAll("[^a-zA-Z0-9]", "").toUpperCase().substring(0,3));
+        if (sifra.toUpperCase()!=sifra) {
+            throw new IlegalnaSifraAerodroma("Ilegalna sifra " + sifra + ", probajte " + sifra.toUpperCase());
+        }
+        this.sifra = sifra;
     }
+
 
     public double getSirina() {
         return sirina;

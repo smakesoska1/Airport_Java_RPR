@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+/*package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,4 +20,4 @@ class BrziLetTest {
             fail("Nije trebalo baciti izuzetak u konstruktoru Aerodroma");
         }
     }
-}
+}*/

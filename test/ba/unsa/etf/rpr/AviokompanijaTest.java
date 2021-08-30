@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+/*package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.Test;
 
@@ -218,4 +218,4 @@ class AviokompanijaTest {
         assertEquals(2, letovi.size());
         assertEquals("VIE", letovi.get(0).getDolazniAerodrom().getSifra());
     }
-}
+}*/
