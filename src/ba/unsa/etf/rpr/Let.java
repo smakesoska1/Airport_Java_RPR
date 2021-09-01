@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 import java.time.LocalTime;
 
-public class Let {
+public class Let implements Comparable<Let> {
     private Aerodrom dolazniAerodrom;
     private Aerodrom polazniAerodrom;
     private LocalTime vrijemePolaska,vrijemeDolaska;
@@ -56,5 +56,12 @@ public class Let {
 
     public double duzinaLeta() {
         return Math.sqrt((dolazniAerodrom.getDuzina()-polazniAerodrom.getDuzina())*(dolazniAerodrom.getDuzina()-polazniAerodrom.getDuzina())+(dolazniAerodrom.getSirina()-polazniAerodrom.getSirina())*(dolazniAerodrom.getSirina()-polazniAerodrom.getSirina()));
+    }
+
+    @Override
+    public int compareTo(Let o) {
+        if(vrijemePolaska.isBefore(o.vrijemePolaska)) return -1;
+        if(vrijemePolaska.isAfter(o.vrijemePolaska)) return 1;
+        return 0;
     }
 }

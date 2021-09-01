@@ -3,10 +3,7 @@ package ba.unsa.etf.rpr;
 import javax.naming.SizeLimitExceededException;
 import javax.swing.*;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Aviokompanija {
      private int maxLetovi;
@@ -44,5 +41,21 @@ public class Aviokompanija {
 
         }
 return novaMapa;
+    }
+
+    public Set<Let> uZraku(LocalTime vrijemeSada) {
+        Set<Let> zrak=new TreeSet<>();
+        for(Let l:letovi){
+            if(l.getVrijemePolaska().isBefore(vrijemeSada) && l.getVrijemeDolaska().isAfter(vrijemeSada))
+                zrak.add(l);}
+
+            return zrak;
+    }
+
+
+    public ArrayList<Let> nadjiNajkraci(String sarajevo, String beč) {
+    }
+
+    public ArrayList<Let> nadjiNajbolji(String sarajevo, String new_york, Object o) {
     }
 }
